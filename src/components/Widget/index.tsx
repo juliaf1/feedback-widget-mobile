@@ -9,10 +9,15 @@ import { theme } from "../../theme";
 export function Widget() {
     const bottomSheetRef = useRef<BottomSheet>(null);
 
+    function handleOpen() {
+        bottomSheetRef.current?.expand();
+    };
+
     return (
         <>
             <TouchableOpacity
                 style={styles.button}
+                onPress={handleOpen}
             >
                 <ChatTeardropDots
                     size={24}
