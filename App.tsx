@@ -7,7 +7,7 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
 
 import { theme } from './src/theme';
-import { Widget } from './src/components/Widget'; // Carrega arquivo index por padrão
+import Widget from './src/components/Widget'; // Carrega arquivo index por padrão
 
 export default function App() {
   const [fontsLoaded] = useFonts({
