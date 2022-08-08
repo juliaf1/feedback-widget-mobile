@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
+import { KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import { useFonts, Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
@@ -20,12 +20,17 @@ export default function App() {
   };
 
   return (
-    <View style={{
-      flex: 1,
-      backgroundColor: theme.colors.background
-    }}>
+    <KeyboardAvoidingView
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.background
+      }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <StatusBar style='light' backgroundColor='transparent' translucent />
-      <Widget />
-    </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Widget />
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
