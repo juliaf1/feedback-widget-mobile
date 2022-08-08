@@ -25,6 +25,7 @@ interface Props {
 
 export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props) {
     const [screenshot, setScreenshot] = useState<string | null>(null);
+    const [isSendingFeedback, setIsSendingFeedback] = useState(false);
 
     const feedbackTypeInfo = feedbackTypes[feedbackType];
 
@@ -39,6 +40,13 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
 
     function handleScreenshotRemove() {
         setScreenshot(null);
+    };
+
+    async function handleSendFeedback() {
+        if (isSendingFeedback) {
+            return;
+        }
+        setIsSendingFeedback(true);
     };
 
     return(
@@ -68,6 +76,7 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
                 style={styles.input}
                 placeholder='Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo.'
                 placeholderTextColor={theme.colors.text_secondary}
+                autoCorrect={false}
             />
 
             <View style={styles.footer}>
@@ -78,7 +87,8 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
                 />
 
                 <Button
-                    isLoading={false}
+                    onPress={handleSendFeedback}
+                    isLoading={isSendingFeedback}
                 />
             </View>
         </View>
