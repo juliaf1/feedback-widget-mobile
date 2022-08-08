@@ -8,7 +8,7 @@ import {
 
 import { Copyright } from '../Copyright';
 
-import { successImg } from '../../assets/success.png';
+import successImg from '../../assets/success.png';
 import { styles } from './styles';
 
 export function Success() {
