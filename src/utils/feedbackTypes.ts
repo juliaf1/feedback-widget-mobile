@@ -12,4 +12,3 @@ export const feedbackTypes = {
     image: require('../assets/thought.png'),
   },
 };
-
