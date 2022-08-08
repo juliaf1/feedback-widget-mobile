@@ -18,13 +18,13 @@ export function Options() {
                 {
                     Object
                     .entries(feedbackTypes)
-                    .map(([key, value]) => {
+                    .map(([key, value]) => (
                         <Option
                             key={key}
                             title={value.title}
                             image={value.image}
                         />
-                    })
+                    ))
                 }
             </View>
 
