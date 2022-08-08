@@ -9,6 +9,7 @@ import {
 import { ArrowLeft } from 'phosphor-react-native';
 
 import { FeedbackType } from '../Widget';
+import { ScreenshotButton } from '../ScreenshotButton';
 
 import { styles } from './styles';
 import { theme } from '../../theme';
@@ -46,9 +47,17 @@ export function Form({ feedbackType }: Props) {
             <TextInput
                 multiline
                 style={styles.input}
-                placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo."
+                placeholder='Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo.'
                 placeholderTextColor={theme.colors.text_secondary}
             />
+
+            <View style={styles.footer}>
+                <ScreenshotButton
+                    onTakeShot={() => {}}
+                    onRemoveShot={() => {}}
+                    screenshot=''
+                />
+            </View>
         </View>
     );
 };
