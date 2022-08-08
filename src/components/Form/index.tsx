@@ -10,6 +10,7 @@ import { ArrowLeft } from 'phosphor-react-native';
 
 import { FeedbackType } from '../Widget';
 import { ScreenshotButton } from '../ScreenshotButton';
+import { Button } from '../Button';
 
 import { styles } from './styles';
 import { theme } from '../../theme';
@@ -56,6 +57,10 @@ export function Form({ feedbackType }: Props) {
                     onTakeShot={() => {}}
                     onRemoveShot={() => {}}
                     screenshot=''
+                />
+
+                <Button
+                    isLoading={false}
                 />
             </View>
         </View>
